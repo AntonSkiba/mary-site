@@ -15,10 +15,8 @@ function App() {
   }, []);
   return (
     <div>
-      <button
-        onClick={onClick}>
-        Send Info
-      </button>
+      <div>Инфа</div>
+      <div>ФОТКИ</div>
     </div>
   )
 }
