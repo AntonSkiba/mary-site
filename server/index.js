@@ -9,17 +9,12 @@ app.use(express.json());
 
 app.use(express.static(path.join(__dirname, '../dist')));
 
-const mainPage = (req, res) => {
+app.use((req, res) => {
   res.sendFile(path.join(__dirname, '../dist/index.html'));
-};
-
-app.get('*', mainPage);
-app.get('/', mainPage);
-
-app.post('/contact', (req, res) => {
-  const { name, message } = req.body;
-  console.log(name, message);
-  res.json({ status: 'ok' });
 });
 
-app.listen(5000, () => console.log('Server started on port http://localhost:5000/'));
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`Server started on port ${PORT}`);
+});
